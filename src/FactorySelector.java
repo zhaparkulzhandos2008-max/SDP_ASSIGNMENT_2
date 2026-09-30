@@ -3,6 +3,7 @@ public class FactorySelector {
   if(family.equalsIgnoreCase("fantasy")) return new FantasyFactory();
   if(family.equalsIgnoreCase("cyberpunk")) return new CyberpunkFactory();
   if(family.equalsIgnoreCase("horror")) return new HorrorFactory();
+  if(family.equalsIgnoreCase("scifi")) return new SciFiFactory();
   throw new IllegalArgumentException("Unknown family: "+family);
  }
 }

@@ -1,0 +1,1 @@
+public class SciFiFactory implements GameFactory { public Character createCharacter(){return new SciFiCharacter();} public Weapon createWeapon(){return new SciFiWeapon();} public Enemy createEnemy(){return new SciFiEnemy();} }
