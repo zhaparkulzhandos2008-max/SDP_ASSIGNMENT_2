@@ -1,70 +1,45 @@
-# Assignment 2 — Part A: Start Without Factories
+# Assignment 2 — Part B: Factory Method
 
-## Domain
-This project uses a game system with three product types:
+Part B refactors Character creation using the Factory Method pattern.
 
+## Structure
+
+Product:
 - Character
-- Weapon
-- Enemy
 
-There are three original product families:
+Concrete Products:
+- FantasyCharacter
+- CyberpunkCharacter
+- HorrorCharacter
 
-- Fantasy
-- Cyberpunk
-- Horror
+Creator:
+- CharacterCreator
 
-Therefore, the initial system contains 9 concrete products.
+Concrete Creators:
+- FantasyCharacterCreator
+- CyberpunkCharacterCreator
+- HorrorCharacterCreator
 
-## Purpose of Part A
-This version intentionally does NOT use Factory Method or Abstract Factory.
-`GameApplication` directly creates concrete objects with `new` and selects
-a family using an `if / else if` chain.
+`createCharacter()` is the Factory Method. Each concrete creator decides which
+Character implementation to instantiate.
 
-This implementation is intentionally difficult to extend. It will be
-refactored in later parts of Assignment 2.
+`prepareCharacter()` is common business logic in the Creator. It obtains the
+Character through the Factory Method and then works with the Character abstraction.
 
-## Design Problems
+## Why this is Factory Method
 
-### 1. Client depends on concrete classes
-`GameApplication` directly knows classes such as `FantasyCharacter`,
-`CyberpunkWeapon`, and `HorrorEnemy`. The client is therefore tightly
-coupled to concrete implementations.
-
-### 2. Large conditional creation logic
-All object creation is located inside the `if / else if` chain in
-`configureGame()`. As more families are added, this method becomes larger
-and harder to maintain.
-
-### 3. Adding a family requires modifying existing client code
-To add another family, for example Sci-Fi, `GameApplication` must be edited
-and another condition must be added. The existing client is therefore not
-closed for modification.
-
-### Additional problem: incompatible products can be combined
-Because the client manually creates every object, a programmer can
-accidentally combine products from different families, for example:
-
-    character = new FantasyCharacter();
-    weapon = new CyberpunkWeapon();
-    enemy = new HorrorEnemy();
-
-Nothing in the Part A architecture prevents this combination.
+Creation is defined as an overridable method in the abstract `CharacterCreator`.
+Concrete creator subclasses override that method and choose the concrete Product.
+It is not a static factory because object creation is selected through polymorphism
+and inheritance.
 
 ## Compile and Run
 
-From the project folder:
-
     javac -d out src/*.java
     java -cp out Main fantasy
-
-Other examples:
-
     java -cp out Main cyberpunk
     java -cp out Main horror
 
 ## Suggested Git Commit
 
-    Initial domain model without factories
-
-This Part A version should remain in Git history before refactoring it
-with Factory Method and Abstract Factory.
+    Introduce Factory Method for character creation
