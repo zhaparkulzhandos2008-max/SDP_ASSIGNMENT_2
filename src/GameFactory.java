@@ -1,5 +1,1 @@
-public interface GameFactory {
-    Character createCharacter();
-    Weapon createWeapon();
-    Enemy createEnemy();
-}
+public interface GameFactory { Character createCharacter(); Weapon createWeapon(); Enemy createEnemy(); }

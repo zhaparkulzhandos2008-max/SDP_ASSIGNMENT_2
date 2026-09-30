@@ -1,4 +1,1 @@
-public interface Weapon {
-    String getName();
-    void use();
-}
+public interface Weapon { String getName(); void use(); }

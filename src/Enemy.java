@@ -1,4 +1,1 @@
-public interface Enemy {
-    String getName();
-    void fight();
-}
+public interface Enemy { String getName(); void fight(); }

@@ -1,6 +1,1 @@
-public class CyberpunkCharacterCreator extends CharacterCreator {
-    @Override
-    public Character createCharacter() {
-        return new CyberpunkCharacter();
-    }
-}
+public class CyberpunkCharacterCreator extends CharacterCreator { public Character createCharacter(){return new CyberpunkCharacter();} }

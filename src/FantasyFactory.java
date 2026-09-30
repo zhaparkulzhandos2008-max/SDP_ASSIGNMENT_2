@@ -1,16 +1,1 @@
-public class FantasyFactory implements GameFactory {
-    @Override
-    public Character createCharacter() {
-        return new FantasyCharacter();
-    }
-
-    @Override
-    public Weapon createWeapon() {
-        return new FantasyWeapon();
-    }
-
-    @Override
-    public Enemy createEnemy() {
-        return new FantasyEnemy();
-    }
-}
+public class FantasyFactory implements GameFactory { public Character createCharacter(){return new FantasyCharacter();} public Weapon createWeapon(){return new FantasyWeapon();} public Enemy createEnemy(){return new FantasyEnemy();} }

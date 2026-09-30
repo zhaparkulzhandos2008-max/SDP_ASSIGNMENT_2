@@ -1,6 +1,1 @@
-public class FantasyCharacterCreator extends CharacterCreator {
-    @Override
-    public Character createCharacter() {
-        return new FantasyCharacter();
-    }
-}
+public class FantasyCharacterCreator extends CharacterCreator { public Character createCharacter(){return new FantasyCharacter();} }

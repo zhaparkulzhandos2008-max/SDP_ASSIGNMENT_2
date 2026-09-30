@@ -1,16 +1,1 @@
-public class HorrorFactory implements GameFactory {
-    @Override
-    public Character createCharacter() {
-        return new HorrorCharacter();
-    }
-
-    @Override
-    public Weapon createWeapon() {
-        return new HorrorWeapon();
-    }
-
-    @Override
-    public Enemy createEnemy() {
-        return new HorrorEnemy();
-    }
-}
+public class HorrorFactory implements GameFactory { public Character createCharacter(){return new HorrorCharacter();} public Weapon createWeapon(){return new HorrorWeapon();} public Enemy createEnemy(){return new HorrorEnemy();} }

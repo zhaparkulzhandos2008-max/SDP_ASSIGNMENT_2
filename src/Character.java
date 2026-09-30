@@ -1,4 +1,1 @@
-public interface Character {
-    String getName();
-    void attack();
-}
+public interface Character { String getName(); void attack(); }
