@@ -1,31 +1,12 @@
 public class GameApplication {
+    private final Character character;
+    private final Weapon weapon;
+    private final Enemy enemy;
 
-    private Character character;
-    private Weapon weapon;
-    private Enemy enemy;
-
-    public void configureGame(String family) {
-
-        // Part A intentionally creates concrete objects directly.
-        // This will be refactored in later parts of the assignment.
-        if (family.equalsIgnoreCase("fantasy")) {
-            character = new FantasyCharacter();
-            weapon = new FantasyWeapon();
-            enemy = new FantasyEnemy();
-
-        } else if (family.equalsIgnoreCase("cyberpunk")) {
-            character = new CyberpunkCharacter();
-            weapon = new CyberpunkWeapon();
-            enemy = new CyberpunkEnemy();
-
-        } else if (family.equalsIgnoreCase("horror")) {
-            character = new HorrorCharacter();
-            weapon = new HorrorWeapon();
-            enemy = new HorrorEnemy();
-
-        } else {
-            throw new IllegalArgumentException("Unknown game family: " + family);
-        }
+    public GameApplication(GameFactory factory) {
+        character = factory.createCharacter();
+        weapon = factory.createWeapon();
+        enemy = factory.createEnemy();
     }
 
     public void startGame() {

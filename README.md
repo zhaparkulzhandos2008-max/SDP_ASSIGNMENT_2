@@ -1,45 +1,31 @@
-# Assignment 2 — Part B: Factory Method
+# Assignment 2 - Part C: Abstract Factory
 
-Part B refactors Character creation using the Factory Method pattern.
+Part C introduces an Abstract Factory for the three related product types:
+Character, Weapon, and Enemy.
 
-## Structure
+Abstract Factory:
+- GameFactory
 
-Product:
-- Character
+Concrete Factories:
+- FantasyFactory
+- CyberpunkFactory
+- HorrorFactory
 
-Concrete Products:
-- FantasyCharacter
-- CyberpunkCharacter
-- HorrorCharacter
+Each concrete factory creates one complete product family.
 
-Creator:
-- CharacterCreator
+GameApplication now depends on GameFactory and product interfaces instead of
+directly creating concrete Character, Weapon, and Enemy implementations.
 
-Concrete Creators:
-- FantasyCharacterCreator
-- CyberpunkCharacterCreator
-- HorrorCharacterCreator
+Part B Factory Method classes are also kept in the project so the previous
+pattern remains demonstrated.
 
-`createCharacter()` is the Factory Method. Each concrete creator decides which
-Character implementation to instantiate.
-
-`prepareCharacter()` is common business logic in the Creator. It obtains the
-Character through the Factory Method and then works with the Character abstraction.
-
-## Why this is Factory Method
-
-Creation is defined as an overridable method in the abstract `CharacterCreator`.
-Concrete creator subclasses override that method and choose the concrete Product.
-It is not a static factory because object creation is selected through polymorphism
-and inheritance.
-
-## Compile and Run
-
+Compile:
     javac -d out src/*.java
+
+Run:
     java -cp out Main fantasy
     java -cp out Main cyberpunk
     java -cp out Main horror
 
-## Suggested Git Commit
-
-    Introduce Factory Method for character creation
+Suggested commit:
+    Introduce Abstract Factory for game families

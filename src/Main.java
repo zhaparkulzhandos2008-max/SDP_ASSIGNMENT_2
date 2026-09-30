@@ -2,18 +2,19 @@ public class Main {
     public static void main(String[] args) {
         String family = args.length > 0 ? args[0] : "fantasy";
 
-        CharacterCreator creator;
+        GameFactory factory;
 
         if (family.equalsIgnoreCase("fantasy")) {
-            creator = new FantasyCharacterCreator();
+            factory = new FantasyFactory();
         } else if (family.equalsIgnoreCase("cyberpunk")) {
-            creator = new CyberpunkCharacterCreator();
+            factory = new CyberpunkFactory();
         } else if (family.equalsIgnoreCase("horror")) {
-            creator = new HorrorCharacterCreator();
+            factory = new HorrorFactory();
         } else {
             throw new IllegalArgumentException("Unknown game family: " + family);
         }
 
-        creator.prepareCharacter();
+        GameApplication game = new GameApplication(factory);
+        game.startGame();
     }
 }
